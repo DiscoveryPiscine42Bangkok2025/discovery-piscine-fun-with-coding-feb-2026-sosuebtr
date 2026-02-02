@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Table</title>
+    <title>Responsive Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
-    table {
-        width: 100%;
-        max-width: 600px;
-        margin: auto;
-        border-collapse: collapse;
-    }
+        table {
+            border-collapse: collapse;
+            margin: auto;
+            width: 80%;
+            max-width: 600px;
+        }
 
-    td {
-        border: 0.5px solid black;
-        padding: 5vw;             
-        text-align: center;
-        font-size: 10vw;          
-        color: rgb(237, 240, 243);
-    }
+        td {
+            border: 3px solid black;
+            padding: 60px;
+            font-size:50px;
+            text-align: left;
+            color: rgb(237, 240, 243);
+        }
 
-    td:nth-child(1) {
-        background-color: rgb(243, 18, 2);
-        width: 50%;
-    }
+        td:nth-child(1) {
+            background-color: rgb(243, 18, 2);
+        }
 
-    td:nth-child(2) {
-        background-color: rgb(29, 8, 223);
-        width: 50%;
-    }
-</style>
+        td:nth-child(2) {
+            background-color: rgb(29, 8, 223);
+        }
+
+        @media (max-width: 600px) {
+            table, tr, td {
+                display: block;
+                width: 100%;
+            }
+
+            td {
+                box-sizing: border-box;
+                padding: 40px;
+                font-size: x-large;
+                color: rgb(237, 240, 243);
+            }
+        }
+    </style>
 </head>
 <body>
 
 <table>
-
     <tr>
         <td>N</td>
-
         <td>S</td>
     </tr>
 </table>
