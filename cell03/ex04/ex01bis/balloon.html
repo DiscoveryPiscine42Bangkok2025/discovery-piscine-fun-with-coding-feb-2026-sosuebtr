@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Balloon</title>
+
+  <style>
+ 
+    #balloon {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.1s ;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div id="balloon"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+
+    let currentSize = 200;
+    const maxSize = 420;
+    const minSize = 200;
+    const colors = ["red", "green", "blue"];
+    let colorIndex = 0;
+
+    function changeColor() {
+        colorIndex = (colorIndex + 1) % colors.length;
+        return colors[colorIndex];
+    }
+
+    function changeColorReverse() {
+        colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+        return colors[colorIndex];
+    }
+
+    $("#balloon").click(function(){
+        if (currentSize < maxSize) {
+            currentSize += 10;
+            $("#balloon").css({
+                width: currentSize + "px",
+                height: currentSize + "px",
+                "background-color": changeColor()
+            });
+        }
+        else {
+            currentSize = minSize;
+            colorIndex = 0;
+            $("#balloon").css({
+                width: minSize + "px",
+                height: minSize + "px",
+                "background-color": "red"
+            });
+        }
+    });
+
+    $("#balloon").mouseleave(function(){
+        if (currentSize > minSize) {
+            currentSize -= 5;
+            $("#balloon").css({
+                width: currentSize + "px",
+                height: currentSize + "px",
+                "background-color": changeColorReverse()
+            });
+        }
+    });
+
+});
+</script>
+
+
+</body>
+</html>
