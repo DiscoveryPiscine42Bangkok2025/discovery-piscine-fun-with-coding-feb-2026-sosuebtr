@@ -3,10 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const newTodoBtn = document.getElementById('newTodo')
   const todoList = document.getElementById('ft_list')
 
-  // โหลด TO DO จาก cookie
   loadTodosFromCookie()
 
-  // ปุ่ม New TO DO
   newTodoBtn.addEventListener('click', function () {
     const todoText = prompt('Enter a new TO DO:')
     if (todoText && todoText.trim() !== '') {
@@ -15,16 +13,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
 
-  // เพิ่ม TO DO
   function addTodo(text) {
     const newTodo = document.createElement('div')
     newTodo.className = 'todo-item'
     newTodo.textContent = text
 
-    // เพิ่มไว้บนสุด
     todoList.prepend(newTodo)
 
-    // คลิกเพื่อลบ
     newTodo.addEventListener('click', function () {
       const confirmDelete = confirm('Do you really want to delete this TO DO?')
       if (confirmDelete) {
@@ -34,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  // บันทึก TO DO ลง cookie
   function saveTodosToCookie() {
     const todos = []
     const todoItems = document.querySelectorAll('#ft_list .todo-item')
@@ -46,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.cookie = 'todos=' + JSON.stringify(todos) + '; path=/'
   }
 
-  // โหลด TO DO จาก cookie
+
   function loadTodosFromCookie() {
     const cookie = document.cookie
       .split('; ')

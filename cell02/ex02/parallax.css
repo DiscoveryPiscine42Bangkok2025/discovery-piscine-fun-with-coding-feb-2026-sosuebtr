@@ -1,0 +1,50 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.parallax-bg {
+    position: relative;
+    height: 100%;
+    background-attachment: fixed; /* (Parallax Effect) */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-1 {
+    background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070');
+}
+
+.img-2 {
+    background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071');
+}
+
+
+.center-content h1 {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px 40px;
+    font-size: 3rem;
+    letter-spacing: 10px;
+    border: 2px solid white;
+}
+
+/* สไตล์ของบล็อกสีดำส่วนกลาง */
+.black-section {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.black-section h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
