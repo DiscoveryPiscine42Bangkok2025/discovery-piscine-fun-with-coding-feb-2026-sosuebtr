@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="leftOperand" placeholder="Enter Number">
+
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+
+        <input type="text" id="rightOperand" placeholder="Enter Number">
+
+        <input type="submit" id="calculateBtn" value="Try me!">
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const leftInput = document.getElementById('leftOperand')
+    const rightInput = document.getElementById('rightOperand')
+    const operatorSelect = document.getElementById('operator')
+    const calculateBtn = document.getElementById('calculateBtn')
+
+    /* =================  TIMER  ================= */
+    let idleTimer = null
+    const IDLE_TIME = 30000  
+
+    function startIdleTimer() {
+        idleTimer = setTimeout(function idleAlert() {
+            alert('Please, use me...')
+
+        idleTimer = setTimeout(idleAlert, IDLE_TIME)
+        }, IDLE_TIME)
+    }
+
+    function resetIdleTimer() {
+        if (idleTimer !== null) {
+            clearTimeout(idleTimer)
+        }
+        startIdleTimer()
+    }
+
+leftInput.addEventListener('input', resetIdleTimer)
+rightInput.addEventListener('input', resetIdleTimer)
+operatorSelect.addEventListener('change', resetIdleTimer)
+calculateBtn.addEventListener('click', resetIdleTimer)
+
+startIdleTimer()
+/* ================================================================ */
+
+    calculateBtn.addEventListener('click', function () {
+
+        const leftOperand = leftInput.value.trim()
+        const rightOperand = rightInput.value.trim()
+        const operator = operatorSelect.value
+
+        if (leftOperand === '' || rightOperand === '') {
+            alert('Error :(')
+            return
+        }
+
+        if (leftOperand.includes('.') || rightOperand.includes('.')) {
+            alert('Error :(')
+            return
+        }
+
+        if (Number(leftOperand) < 0 || Number(rightOperand) < 0) {
+            alert('Error :(')
+            return
+        }
+
+        if (isNaN(leftOperand) || isNaN(rightOperand)) {
+            alert('Error :(')
+            return
+        }
+
+        const left = parseInt(leftOperand, 10)
+        const right = parseInt(rightOperand, 10)
+
+        if ((operator === '/' || operator === '%') && right === 0) {
+            alert("It's over 9000!")
+            console.log("It's over 9000!")
+            return
+        }
+
+        let result
+
+        switch (operator) {
+            case '+': result = left + right; break
+            case '-': result = left - right; break
+            case '*': result = left * right; break
+            case '/': result = left / right; break
+            case '%': result = left % right; break
+            default:
+                alert('Error :(')
+                return
+        }
+
+        alert('Result: ' + result)
+        console.log('Result: ' + result)
+    })
+
+})
+</script>
+
+</body>
+</html>

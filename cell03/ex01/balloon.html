@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Balloon</title>
+
+  <style>
+ 
+    #balloon {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.1s ;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div id="balloon"></div>
+  </div>
+
+  <script>
+    let currentSize = 200;
+    const maxSize = 420;
+    const minSize = 200;
+    const colors = ['red', 'green', 'blue'];
+    let colorIndex = 0;
+
+    const balloon = document.getElementById('balloon');
+
+    function changeColor() {
+      colorIndex = (colorIndex + 1) % colors.length;
+      return colors[colorIndex];
+    }
+
+    function changeColorReverse() {
+      colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+      return colors[colorIndex];
+    }
+
+    balloon.addEventListener('click', function () {
+      if (currentSize < maxSize) {
+        currentSize += 10;
+        balloon.style.width = currentSize + 'px';
+        balloon.style.height = currentSize + 'px';
+        balloon.style.backgroundColor = changeColor();
+      } else {
+        currentSize = minSize;
+        balloon.style.width = currentSize + 'px';
+        balloon.style.height = currentSize + 'px';
+        balloon.style.backgroundColor = 'red';
+        colorIndex = 0;
+      }
+    });
+
+    balloon.addEventListener('mouseleave', function () {
+      if (currentSize > minSize) {
+        currentSize -= 5;
+        balloon.style.width = currentSize + 'px';
+        balloon.style.height = currentSize + 'px';
+        balloon.style.backgroundColor = changeColorReverse();
+      }
+    });
+  </script>
+
+</body>
+</html>
