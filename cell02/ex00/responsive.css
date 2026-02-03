@@ -1,0 +1,26 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+ table ,td {
+            border: 3px solid rgb(0, 0, 0);
+            border-collapse: collapse;
+            margin: auto;
+        }
+        td:nth-child(1) {
+            background-color: rgb(243, 18, 2);
+            width: 300px
+        }
+        td:nth-child(2) {
+            background-color: rgb(29, 8, 223);
+            width: 300px
+        }
+        td {
+            padding: 50px;
+            text-align: left;
+            font-size: 100px;
+            color: rgb(237, 240, 243);
+        }
