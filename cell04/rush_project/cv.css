@@ -1,0 +1,105 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+
+}
+
+/* ===== General ===== */
+section {
+  padding: 80px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===== Navbar (เหมือน navbar-dark bg-dark fixed-top) ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #212529;
+  padding: 12px 0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.nav-link:hover {
+  color: #0d6efd;
+}
+
+/* ===== Home ===== */
+.bg-light {
+  background: #f8f9fa;
+}
+
+.text-left {
+  text-align: left;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+.text-center {
+  text-align: center;
+}
+
+.rounded-circle {
+  border-radius: 10%;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+/* ===== Experience ===== */
+h2 {
+  margin-bottom: 20px;
+}
+
+ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* ===== Contact ===== */
+.bg-dark {
+  background: #212529;
+}
+
+.text-white {
+  color: white;
+}
+
+#contact a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+#contact a:hover {
+  color: #0d6efd;
+
+}
